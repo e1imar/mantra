@@ -29,6 +29,7 @@ import { ThemeSettings, SettingsProvider } from '../components/settings';
 // https://docs.minimals.cc/authentication/js-version
 
 import { AuthProvider } from '../auth/JwtContext';
+import MainLayout from '../layouts/main';
 
 // ----------------------------------------------------------------------
 
@@ -43,7 +44,7 @@ MyApp.propTypes = {
 export default function MyApp(props) {
   const { Component, pageProps, emotionCache = clientSideEmotionCache } = props;
 
-  const getLayout = Component.getLayout ?? ((page) => page);
+  const getLayout = Component.getLayout ?? ((page) => <MainLayout>{page}</MainLayout>);
 
   return (
     <CacheProvider value={emotionCache}>
@@ -56,14 +57,12 @@ export default function MyApp(props) {
         <SettingsProvider>
           <MotionLazyContainer>
             <ThemeProvider>
-              <ThemeSettings>
-                <ThemeLocalization>
-                  <SnackbarProvider>
-                    <ProgressBar />
-                    {getLayout(<Component {...pageProps} />)}
-                  </SnackbarProvider>
-                </ThemeLocalization>
-              </ThemeSettings>
+              <ThemeLocalization>
+                <SnackbarProvider>
+                  <ProgressBar />
+                  {getLayout(<Component {...pageProps} />)}
+                </SnackbarProvider>
+              </ThemeLocalization>
             </ThemeProvider>
           </MotionLazyContainer>
         </SettingsProvider>

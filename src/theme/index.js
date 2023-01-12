@@ -12,6 +12,7 @@ import shadows from './shadows';
 import customShadows from './customShadows';
 import componentsOverride from './overrides';
 import GlobalStyles from './globalStyles';
+import Variables from './variables';
 
 // ----------------------------------------------------------------------
 
@@ -42,6 +43,7 @@ export default function ThemeProvider({ children }) {
     <StyledEngineProvider injectFirst>
       <MUIThemeProvider theme={theme}>
         <CssBaseline />
+        <Variables />
         <GlobalStyles />
         {children}
       </MUIThemeProvider>

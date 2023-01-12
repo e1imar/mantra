@@ -22,6 +22,7 @@ import ContrastOptions from './ContrastOptions';
 import DirectionOptions from './DirectionOptions';
 import FullScreenOptions from './FullScreenOptions';
 import ColorPresetsOptions from './ColorPresetsOptions';
+import { BurgerMenu } from '../../mantra/presentational/BurgerMenu';
 
 // ----------------------------------------------------------------------
 
@@ -60,7 +61,7 @@ export default function SettingsDrawer() {
 
   return (
     <>
-      {!open && <ToggleButton open={open} notDefault={notDefault} onToggle={handleToggle} />}
+      {<BurgerMenu isOpen={open} notDefault={notDefault} onClick={handleToggle} />}
 
       <Drawer
         anchor="right"
@@ -78,59 +79,26 @@ export default function SettingsDrawer() {
                   : theme.palette.common.black,
                 0.16
               )}`,
+            backdropFilter: 'blur(20px)',
+            backgroundColor: 'rgba(40, 44, 47, 0.4)',
+            right: '17px',
+            borderRadius: '14px',
+            top: '18px',
+            height: '96vh',
           },
         }}
       >
-        <Stack
-          direction="row"
-          alignItems="center"
-          justifyContent="space-between"
-          sx={{ py: 2, pr: 1, pl: SPACING }}
-        >
-          <Typography variant="subtitle1" sx={{ flexGrow: 1 }}>
-            Settings
-          </Typography>
 
-          <Tooltip title="Reset">
-            <Box sx={{ position: 'relative' }}>
-              {notDefault && <BadgeDot />}
-              <IconButton onClick={onResetSetting}>
-                <Iconify icon="ic:round-refresh" />
-              </IconButton>
-            </Box>
-          </Tooltip>
+        <Scrollbar sx={{ p: SPACING, pb: 0, height: '100%' }}>
+          <Stack height="100%" justifyContent="flex-end">
+            <Block title="Mode">
+              <ModeOptions />
+            </Block>
 
-          <IconButton onClick={handleClose}>
-            <Iconify icon="eva:close-fill" />
-          </IconButton>
-        </Stack>
-
-        <Divider sx={{ borderStyle: 'dashed' }} />
-
-        <Scrollbar sx={{ p: SPACING, pb: 0 }}>
-          <Block title="Mode">
-            <ModeOptions />
-          </Block>
-
-          <Block title="Contrast">
-            <ContrastOptions />
-          </Block>
-
-          <Block title="Direction">
-            <DirectionOptions />
-          </Block>
-
-          <Block title="Layout">
-            <LayoutOptions />
-          </Block>
-
-          <Block title="Stretch" tooltip="Only available at large resolutions > 1600px (xl)">
-            <StretchOptions />
-          </Block>
-
-          <Block title="Presets">
-            <ColorPresetsOptions />
-          </Block>
+            <Block title="Presets">
+              <ColorPresetsOptions />
+            </Block>
+          </Stack>
         </Scrollbar>
 
         <Box sx={{ p: SPACING, pt: 0 }}>

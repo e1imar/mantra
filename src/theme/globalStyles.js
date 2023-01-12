@@ -9,6 +9,8 @@ export default function GlobalStyles() {
       styles={{
         '*': {
           boxSizing: 'border-box',
+          padding: 0,
+          margin: 0,
         },
         html: {
           margin: 0,
@@ -47,7 +49,14 @@ export default function GlobalStyles() {
         ul: {
           margin: 0,
           padding: 0,
+          listStyle: 'none',
         },
+        button: {
+          border: 'none',
+        },
+        li: {
+          listStyle: 'none',
+        }
       }}
     />
   );

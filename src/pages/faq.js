@@ -1,5 +1,4 @@
 const FAQ = () => {
-
   return (
     <h1>
       FAQ
@@ -7,4 +6,4 @@ const FAQ = () => {
   );
 }
 
-export default Reviews;
+export default FAQ;

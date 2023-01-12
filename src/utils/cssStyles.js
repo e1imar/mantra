@@ -99,3 +99,7 @@ export const hideScrollbarX = {
     display: 'none',
   },
 };
+
+export const getMainColor = props => props.theme.palette.primary.main;
+export const getBgColor = props => props.theme.palette.background.default;
+export const isDarkMode = props => props.theme.palette.mode === 'dark';

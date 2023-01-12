@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
+import { getMainColor } from '../../../utils/cssStyles';
 
 export const Container = styled.button`
   position: fixed;
@@ -17,7 +18,7 @@ export const Container = styled.button`
   & .burger {
     width: 35px;
     height: 2px;
-    background-color: var(--main-red);
+    background-color: ${getMainColor};
     border-radius: 5px;
     transition: all .6s ease-in-out;
     display: flex;
@@ -29,7 +30,7 @@ export const Container = styled.button`
       position: absolute;
       width: 35px;
       height: 2px;
-      background-color: var(--main-red);
+      background-color: ${getMainColor};
       border-radius: 10px;
     }
 
@@ -75,8 +76,8 @@ export const Container = styled.button`
   }
 `;
 
-export const BurgerMenu = ({ isOpen }) => (
-  <Container isOpen={isOpen}>
+export const BurgerMenu = ({ isOpen, onClick }) => (
+  <Container isOpen={isOpen} onClick={onClick}>
     <div className="burger"></div>
   </Container>
 )

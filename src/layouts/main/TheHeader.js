@@ -9,7 +9,7 @@ const TheHeader = styled.header`
   justify-content: space-between;
   background-color: ${getBgColor};
   align-items: center;
-  height: 56px;
+  height: var(--header-height);
   padding: 0 30px;
 `;
 

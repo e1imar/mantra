@@ -6,10 +6,11 @@ import MainLogo from '../../components/mantra/presentational/MainLogo';
 import { PATH_MAIN } from '../../routes/paths';
 import Link from 'next/link';
 import { ThemeSettings } from '../../components/settings';
+import { Stack } from '@mui/material';
 
-MainLayout.propTypes = { children: PropTypes.object };
+Layout.propTypes = { children: PropTypes.object };
 
-export default function MainLayout({ children }) {
+export default function Layout({ children }) {
   return (
     <>
       <TheHeader>
@@ -21,7 +22,12 @@ export default function MainLayout({ children }) {
       <TheMain>
         {children}
       </TheMain>
-      <TheFooter />
+      <TheFooter>
+        <Stack spacing="5px" alignItems="center">
+          <MainLogo />
+          <span>nootropics shop</span>
+        </Stack>
+      </TheFooter>
     </>
   )
 }

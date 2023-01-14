@@ -23,11 +23,11 @@ const CardsContainer = styled.ul`
 export default function CardList({ cardList }) {
   return (
     <CardsContainer>
-      {cardList.map(({ price, stickerName, title, id, image }) =>
+      {cardList.map(({ price, sticker, title, id, image }) =>
         <Card
           price={price}
           title={title}
-          stickerName={stickerName}
+          sticker={sticker}
           image={image}
           key={id}
         />

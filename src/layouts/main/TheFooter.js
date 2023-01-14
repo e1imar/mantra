@@ -7,10 +7,19 @@ const TheFooter = styled.footer`
   justify-content: center;
   align-items: center;
   height: 10vh;
-  min-height: 220px;
+  min-height: 150px;
 
   @media screen and (max-width: 640px) {
     min-height: 330px;
+  }
+
+  & span {
+    font-family: Roboto, sans-serif;
+    text-transform: lowercase;
+    color: #787878;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: .54em;
   }
 `;
 

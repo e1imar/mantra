@@ -11,7 +11,9 @@ export default function Variables() {
       
       
       // Colors
+      --gray-light: #c6c6c6;
       --gray: #767676;
+      --gray-darker: #434343;
       --gray-dark: #2a2a2a;
 
 

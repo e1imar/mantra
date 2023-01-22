@@ -1,6 +1,5 @@
 import CardList from '../components/mantra/presentational/CardList';
 import { useState } from 'react';
-import IsAvailable from '../components/mantra/presentational/IsAvailable';
 
 const cardList = [
   {
@@ -69,10 +68,7 @@ const Catalogue = () => {
   // console.log(data);
 
   return (
-    <>
-      <IsAvailable />
-      <CardList cardList={catalogue} />
-    </>
+    <CardList cardList={catalogue} />
   )
 }
 

@@ -14,12 +14,16 @@ export default function Variables() {
       
       
       // Colors
+      --gray-lighter: #ddd;
       --gray-light: #c6c6c6;
       --gray: #767676;
       --gray-heavy: #4e4e4e;
       --gray-darker: #434343;
       --gray-dark: #2a2a2a;
 
+      --green: #11d100;
+      
+      --red: #b71d18;
 
       --letter-spacing-main: 0.06em; 
 

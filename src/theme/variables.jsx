@@ -7,15 +7,21 @@ export default function Variables() {
         
       //  Fonts
         --font-inter: 500 16px 'Inter', sans-serif;
+
+        --font-roboto: 400 15px 'Roboto', sans-serif;
+        --font-robot-heading: 400 28px 'Roboto', sans-serif;
       //  Fonts
       
       
       // Colors
       --gray-light: #c6c6c6;
       --gray: #767676;
+      --gray-heavy: #4e4e4e;
       --gray-darker: #434343;
       --gray-dark: #2a2a2a;
 
+
+      --letter-spacing-main: 0.06em; 
 
       // Misc
       --border: 2px solid var(--gray-dark);

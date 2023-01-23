@@ -27,7 +27,7 @@ export default function ExpandableInfo({ title, text, isHead }) {
 
   return (
     <section>
-      <Stack mb="22px" borderBottom="2px solid var(--gray-heavy)" justifyContent="space-between" direction="row" alignItems="center">
+      <Stack mb={isOpen ? '22px' : ''} borderBottom="2px solid var(--gray-heavy)" justifyContent="space-between" direction="row" alignItems="center">
         {
           isHead ?
             <ExpandableInfoHeadingBig>{ title }</ExpandableInfoHeadingBig>

@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import PriceWithDiscount from './PriceWithDiscount';
 import styled from '@emotion/styled';
+import Link from 'next/link';
+import { PATH_MAIN } from '../../../routes/paths';
 
 const CardWrapper = styled.li`
   display: flex;
@@ -24,6 +26,10 @@ const ImageWrapper = styled.div`
   margin-bottom: 10px;
   border-radius: var(--border-radius);
   overflow: hidden;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const Sticker = styled.p`
@@ -32,14 +38,18 @@ const Sticker = styled.p`
   right: 12px;
 `;
 
-export default function Card({ sticker, title, price, image = 'https://themantra.ru/media/products/Mind_350.jpg' }) {
+export default function Card({ id, sticker, title, price, image = 'https://themantra.ru/media/products/Mind_350.jpg' }) {
   return (
     <CardWrapper>
       <ImageWrapper>
         <Sticker>
           {sticker}
         </Sticker>
-        <Image alt={title} layout="fill" src={image} />
+          <Link href={PATH_MAIN.product(id)}>
+            <a>
+              <Image alt={title} layout="fill" src={image} />
+            </a>
+          </Link>
       </ImageWrapper>
 
       <CardTitle>{title}</CardTitle>

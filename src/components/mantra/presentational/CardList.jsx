@@ -30,6 +30,7 @@ export default function CardList({ cardList }) {
           sticker={sticker}
           image={image}
           key={id}
+          id={id}
         />
       )}
     </CardsContainer>

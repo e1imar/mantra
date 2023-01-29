@@ -18,6 +18,7 @@ export default function Variables() {
       --gray-light: #c6c6c6;
       --gray: #767676;
       --gray-heavy: #4e4e4e;
+      --gray-heavier: #4d4d4d;
       --gray-darker: #434343;
       --gray-dark: #2a2a2a;
 

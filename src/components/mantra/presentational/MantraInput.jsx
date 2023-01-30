@@ -7,6 +7,7 @@ export const MantraInput = styled(TextField)`
   & fieldset.MuiOutlinedInput-notchedOutline {
     border: 2px solid var(--gray-heavier);
     height: 41px;
+    top: -3px;
   }
 
   & .MuiInputBase-root {
@@ -15,6 +16,7 @@ export const MantraInput = styled(TextField)`
 
   & .MuiInputBase-input {
     padding: 9px 0;
+    text-align: center;
   }
 
   & .MuiFormLabel-root {

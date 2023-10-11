@@ -1,25 +1,18 @@
 import { useState } from 'react';
 // @mui
 import { alpha, useTheme } from '@mui/material/styles';
-import { Box, Divider, Drawer, Stack, Typography, Tooltip, IconButton } from '@mui/material';
+import { Box, Drawer, Stack } from '@mui/material';
 // utils
 import { bgBlur } from '../../../utils/cssStyles';
 // config
 import { NAV } from '../../../config';
 //
-import Iconify from '../../iconify';
 import Scrollbar from '../../scrollbar';
 //
 import { defaultSettings } from '../config';
 import { useSettingsContext } from '../SettingsContext';
 import Block from './Block';
-import BadgeDot from './BadgeDot';
-import ToggleButton from './ToggleButton';
 import ModeOptions from './ModeOptions';
-import LayoutOptions from './LayoutOptions';
-import StretchOptions from './StretchOptions';
-import ContrastOptions from './ContrastOptions';
-import DirectionOptions from './DirectionOptions';
 import FullScreenOptions from './FullScreenOptions';
 import ColorPresetsOptions from './ColorPresetsOptions';
 import { BurgerMenu } from '../../mantra/presentational/BurgerMenu';
@@ -36,7 +29,6 @@ export default function SettingsDrawer() {
     themeContrast,
     themeDirection,
     themeColorPresets,
-    onResetSetting,
   } = useSettingsContext();
 
   const theme = useTheme();

@@ -1,6 +1,7 @@
 import { Button, Collapse, Stack } from '@mui/material';
 import styled from '@emotion/styled';
 import { getMainColor } from '../../../../utils/cssStyles';
+import PropTypes from "prop-types";
 
 const Title = styled.h2`
   font: var(--font-roboto);
@@ -44,4 +45,16 @@ export default function CartPageStep({ btnClicked, icon: Icon , children, title,
       </Collapse>
     </section>
   );
+}
+
+CartPageStep.propTypes = {
+    btnClicked: PropTypes.func,
+    icon: PropTypes.element,
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node
+    ]),
+    title: PropTypes.string,
+    isOpen: PropTypes.bool,
+    btnLabel: PropTypes.string
 }

@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { Collapse, Stack } from '@mui/material';
 import Plus from '../icon-like/Plus';
 import { useState } from 'react';
+import PropTypes from "prop-types";
 
 
 const ExpandableInfoText = styled.p`
@@ -43,4 +44,10 @@ export default function ExpandableInfo({ title, text, isHead }) {
       </Collapse>
     </section>
   )
+}
+
+ExpandableInfo.propTypes = {
+    title: PropTypes.string,
+    text: PropTypes.string,
+    isHead: PropTypes.bool
 }

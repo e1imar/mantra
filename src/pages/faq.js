@@ -51,11 +51,11 @@ export default function FAQ() {
   return (
     <Container>
       <ImageWrapper>
-        <Image layout="fill" src="/assets/mantra/limitless.png" />
+        <Image layout="fill" src="/assets/mantra/limitless.png" alt="screen from limitless"/>
       </ImageWrapper>
       <Stack width="100%">
         {
-          FAQ_LIST.map(props => <ExpandableInfo {...props} />)
+          FAQ_LIST.map(prop => <ExpandableInfo key={prop.title} {...prop} />)
         }
       </Stack>
     </Container>

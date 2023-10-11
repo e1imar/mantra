@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { Stack } from '@mui/material';
 import { getMainColor } from '../../../utils/cssStyles';
+import PropTypes from "prop-types";
 
 const DefaultPrice = styled.h6`
   font: var(--font-inter);
@@ -28,4 +29,9 @@ export default function PriceWithDiscount({ defaultPrice, discountPrice }) {
       }
     </Stack>
   )
+}
+
+PriceWithDiscount.propTypes = {
+    defaultPrice: PropTypes.number,
+    discountPrice: PropTypes.number
 }

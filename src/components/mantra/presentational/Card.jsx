@@ -3,6 +3,7 @@ import PriceWithDiscount from './PriceWithDiscount';
 import styled from '@emotion/styled';
 import Link from 'next/link';
 import { PATH_MAIN } from '../../../routes/paths';
+import PropTypes from "prop-types";
 
 const CardWrapper = styled.li`
   display: flex;
@@ -57,3 +58,11 @@ export default function Card({ id, sticker, title, price, image = 'https://thema
     </CardWrapper>
   )
 };
+
+Card.propTypes = {
+    id: PropTypes.number,
+    sticker: PropTypes.string,
+    title: PropTypes.string,
+    price: PropTypes.number,
+    image: PropTypes.string
+}

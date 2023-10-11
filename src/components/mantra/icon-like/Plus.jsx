@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { getMainColor } from '../../../utils/cssStyles';
 import { memo } from 'react';
+import PropTypes from "prop-types";
 
 export const HorizontalLine = styled.div`
   position: absolute;
@@ -40,5 +41,9 @@ const Plus = memo(({ onClick }) => (
     <VerticalLine />
   </PlusContainer>
 ));
+
+Plus.propTypes = {
+    onClick: PropTypes.func
+}
 
 export default Plus;

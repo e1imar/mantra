@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { getMainColor } from '../../../utils/cssStyles';
+import PropTypes from "prop-types";
 
 export const Container = styled.button`
   position: fixed;
@@ -78,6 +79,11 @@ export const Container = styled.button`
 
 export const BurgerMenu = ({ isOpen, onClick }) => (
   <Container isOpen={isOpen} onClick={onClick}>
-    <div className="burger"></div>
+    {/*<div className="burger"></div>*/}
   </Container>
 )
+
+BurgerMenu.propTypes = {
+  onClick: PropTypes.func,
+  isOpen: PropTypes.bool
+}

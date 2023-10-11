@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { HorizontalLine, VerticalLine } from './Plus';
 import { memo } from 'react';
 import { getMainColor } from '../../../utils/cssStyles';
+import PropTypes from "prop-types";
 
 const DeleteContainer = styled.div`
   position: relative;
@@ -22,5 +23,9 @@ const Delete = ({ onClick }) => (
     <VerticalLine />
   </DeleteContainer>
 );
+
+Delete.propTypes = {
+    onClick: PropTypes.func
+}
 
 export default memo(Delete);

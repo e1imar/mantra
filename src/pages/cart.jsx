@@ -43,10 +43,8 @@ export default function CartPage() {
             }} />
             <CartPageSecondStep btnClicked={() => setIsThirdStepOpen(!isThirdStepOpen)} isOpen={isSecondStepOpen} />
             <CartPageThirdStep btnClicked={() => setIsFourthStepOpen(!isFourthStepOpen)} isOpen={isThirdStepOpen} />
-            <CartPageStep btnClicked={() => setIsFifthStepOpen(!isFifthStepOpen)}  isOpen={isFourthStepOpen} icon={WalletIcon} title="Шаг 4. Способ оплаты">
-            </CartPageStep>
-            <CartPageStep isOpen={isFifthStepOpen} icon={FinishIcon} btnLabel="Разместить заказ" title="Шаг 5. Размещение заказа">
-            </CartPageStep>
+            <CartPageStep btnClicked={() => setIsFifthStepOpen(!isFifthStepOpen)}  isOpen={isFourthStepOpen} icon={WalletIcon} title="Шаг 4. Способ оплаты"/>
+            <CartPageStep isOpen={isFifthStepOpen} icon={FinishIcon} btnLabel="Разместить заказ" title="Шаг 5. Размещение заказа"/>
           </Stack>
         </section>
       </CartPageWrapper>

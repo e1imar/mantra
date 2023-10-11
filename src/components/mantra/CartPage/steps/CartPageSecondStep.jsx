@@ -9,7 +9,7 @@ export default function CartPageSecondStep(props) {
       <Stack spacing="43px">
         <Stack spacing="18px" direction="row" justifyContent="space-between">
           <RHFSelect name="country" label="Страна">
-            <option value=""></option>
+            <option value=""/>
             <option value="russia">Россия</option>
           </RHFSelect>
           <RHFTextField name="city" label="Город" required />

@@ -1,5 +1,6 @@
 import Card from './Card';
 import styled from '@emotion/styled';
+import PropTypes from "prop-types";
 
 const CardsContainer = styled.ul`
   grid-area: cards;
@@ -35,4 +36,8 @@ export default function CardList({ cardList }) {
       )}
     </CardsContainer>
   )
+}
+
+CardList.propTypes = {
+  cardList: PropTypes.array
 }

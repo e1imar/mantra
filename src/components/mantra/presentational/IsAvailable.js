@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Stack } from '@mui/material';
+import PropTypes from "prop-types";
 
 const Dot = styled.div`
   width: 13px;
@@ -38,4 +39,8 @@ export default function IsAvailable({ isAvailable }) {
       }
     </Stack>
   );
+}
+
+IsAvailable.propTypes = {
+  isAvailable: PropTypes.bool
 }

@@ -97,7 +97,7 @@ export default function CartPageThirdStep(props) {
                 <Stack spacing={1} direction="row" justifyContent="space-between" alignItems="center">
                   <span>{title}</span>
                   <div>
-                    <Image layout="fixed" width="50px" height="24px" src={imgSrc} />
+                    <Image layout="fixed" width="50px" height="24px" src={imgSrc} alt={title}/>
                   </div>
                 </Stack>
               </TitleCell>

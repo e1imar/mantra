@@ -79,7 +79,7 @@ export const Container = styled.button`
 
 export const BurgerMenu = ({ isOpen, onClick }) => (
   <Container isOpen={isOpen} onClick={onClick}>
-    {/*<div className="burger"></div>*/}
+    <div className="burger"/>
   </Container>
 )
 

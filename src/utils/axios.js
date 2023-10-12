@@ -12,3 +12,23 @@ axiosInstance.interceptors.response.use(
 );
 
 export default axiosInstance;
+
+// ----------------------------------------------------------------------
+
+export const fetcher = async (args) => {
+    const [url, config] = Array.isArray(args) ? args : [args];
+
+    const res = await axiosInstance.get(url, { ...config });
+
+    return res.data;
+};
+
+// ----------------------------------------------------------------------
+
+export const endpoints = {
+    product: {
+        list: '/api/product/list',
+        details: '/api/product/details',
+        search: '/api/product/search',
+    },
+};

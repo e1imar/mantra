@@ -54,7 +54,7 @@ export default function Card({ id, sticker, title, price, image }) {
       </ImageWrapper>
 
       <CardTitle>{title}</CardTitle>
-      <PriceWithDiscount defaultPrice={price} discountPrice={300} />
+        {price && <PriceWithDiscount defaultPrice={price}/>}
     </CardWrapper>
   )
 };

@@ -58,7 +58,7 @@ const Button = styled.button`
 `;
 
 const ProductById = ({product}) => {
-  const {title} = product
+  const {title, price, available, currency} = product
   return <PageContainer>
 
     <ProductCard>
@@ -68,25 +68,25 @@ const ProductById = ({product}) => {
 
       <Stack borderBottom="var(--border)" pb="7px" pt="7px" justifyContent="space-between" alignItems="center"
              direction="row">
-        <IsAvailable/>
+        <IsAvailable isAvailable={available}/>
         <Text>
-          790 RUB
+          {price ? `${price} ${currency?.code}` : ''}
         </Text>
       </Stack>
 
-      <Stack borderBottom="var(--border)" p="22px 0" justifyContent="space-between" alignItems="center" direction="row">
-        <Text>
-          790 RUB
-        </Text>
-        <IsAvailable/>
-      </Stack>
+      {/*<Stack borderBottom="var(--border)" p="22px 0" justifyContent="space-between" alignItems="center" direction="row">*/}
+      {/*  <Text>*/}
+      {/*    790 RUB*/}
+      {/*  </Text>*/}
+      {/*  <IsAvailable/>*/}
+      {/*</Stack>*/}
 
-      <Stack borderBottom="var(--border)" p="27px 0" justifyContent="space-between" alignItems="center" direction="row">
-        <Text>
-          790 RUB
-        </Text>
-        <IsAvailable/>
-      </Stack>
+      {/*<Stack borderBottom="var(--border)" p="27px 0" justifyContent="space-between" alignItems="center" direction="row">*/}
+      {/*  <Text>*/}
+      {/*    790 RUB*/}
+      {/*  </Text>*/}
+      {/*  <IsAvailable/>*/}
+      {/*</Stack>*/}
 
       <Stack pt="44px" justifyContent="center" alignItems="center">
         <Button>

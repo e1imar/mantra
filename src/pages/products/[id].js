@@ -4,6 +4,7 @@ import Image from 'next/image';
 import IsAvailable from '../../components/mantra/presentational/IsAvailable';
 import { getMainColor } from '../../utils/cssStyles';
 import ExpandableInfo from '../../components/mantra/presentational/ExpandableInfo';
+import axios, {endpoints} from "../../utils/axios";
 
 const PageContainer = styled.div`
   width: 100%;
@@ -56,57 +57,78 @@ const Button = styled.button`
   }
 `;
 
-const ProductById = () => <PageContainer>
+const ProductById = ({product}) => {
+  const {title} = product
+  return <PageContainer>
 
-  <ProductCard>
-    <ImageWrapper>
-      <Image src="https://themantra.ru/media/products/Mind_350.jpg" layout="fill" alt="mind"/>
-    </ImageWrapper>
+    <ProductCard>
+      <ImageWrapper>
+        <Image src="https://themantra.ru/media/products/Mind_350.jpg" layout="fill" alt="mind"/>
+      </ImageWrapper>
 
-    <Stack borderBottom="var(--border)" pb="7px" pt="7px" justifyContent="space-between" alignItems="center" direction="row">
-      <IsAvailable />
-      <Text>
-        790 RUB
-      </Text>
-    </Stack>
-
-    <Stack borderBottom="var(--border)" p="22px 0" justifyContent="space-between" alignItems="center" direction="row">
-      <Text>
-        790 RUB
-      </Text>
-      <IsAvailable />
-    </Stack>
-
-    <Stack borderBottom="var(--border)" p="27px 0" justifyContent="space-between" alignItems="center" direction="row">
-      <Text>
-        790 RUB
-      </Text>
-      <IsAvailable />
-    </Stack>
-
-    <Stack pt="44px" justifyContent="center" alignItems="center">
-      <Button>
-        В корзину
-      </Button>
-    </Stack>
-  </ProductCard>
-
-  <Info>
-    <Stack spacing={3}>
-      <ExpandableInfo isHead title="Львиная Грива (Lion's Mane Mushroom)" text="Львиная грива (Lion's Mane) – это съедобный гриб, растущий на деревьях в Северной Америке, Европе и Азии. Свое названия получил благодаря внешнему виду, похожему на гриву льва. Обладает ноотропными свойствами и полезен для улучшения когнитивных функций, борьбы с усталостью и улучшения настроения." />
-      <ExpandableInfo isHead title="Основные эффекты" text="Способствует нормализации кровообращения. Укрепляет память и продуктивность работы головного мозга. Способствует укреплению физической выносливости Повышает иммунитет, дарит телу силы побеждать заболевания" />
-      <Stack spacing={1}>
-        <ExpandableInfo title="Механизм действия" />
-        <ExpandableInfo title="Механизм действия" />
-        <ExpandableInfo title="Механизм действия" />
-        <ExpandableInfo title="Механизм действия" />
-        <ExpandableInfo title="Механизм действия" />
-        <ExpandableInfo title="Механизм действия" />
-        <ExpandableInfo title="Механизм действия" />
+      <Stack borderBottom="var(--border)" pb="7px" pt="7px" justifyContent="space-between" alignItems="center"
+             direction="row">
+        <IsAvailable/>
+        <Text>
+          790 RUB
+        </Text>
       </Stack>
-    </Stack>
-  </Info>
 
-</PageContainer>
+      <Stack borderBottom="var(--border)" p="22px 0" justifyContent="space-between" alignItems="center" direction="row">
+        <Text>
+          790 RUB
+        </Text>
+        <IsAvailable/>
+      </Stack>
+
+      <Stack borderBottom="var(--border)" p="27px 0" justifyContent="space-between" alignItems="center" direction="row">
+        <Text>
+          790 RUB
+        </Text>
+        <IsAvailable/>
+      </Stack>
+
+      <Stack pt="44px" justifyContent="center" alignItems="center">
+        <Button>
+          В корзину
+        </Button>
+      </Stack>
+    </ProductCard>
+
+    <Info>
+      <Stack spacing={3}>
+        <ExpandableInfo isHead title={title}
+                        text="Львиная грива (Lion's Mane) – это съедобный гриб, растущий на деревьях в Северной Америке, Европе и Азии. Свое названия получил благодаря внешнему виду, похожему на гриву льва. Обладает ноотропными свойствами и полезен для улучшения когнитивных функций, борьбы с усталостью и улучшения настроения."/>
+        <ExpandableInfo isHead title="Основные эффекты"
+                        text="Способствует нормализации кровообращения. Укрепляет память и продуктивность работы головного мозга. Способствует укреплению физической выносливости Повышает иммунитет, дарит телу силы побеждать заболевания"/>
+        <Stack spacing={1}>
+          <ExpandableInfo title="Механизм действия"/>
+          <ExpandableInfo title="Механизм действия"/>
+          <ExpandableInfo title="Механизм действия"/>
+          <ExpandableInfo title="Механизм действия"/>
+          <ExpandableInfo title="Механизм действия"/>
+          <ExpandableInfo title="Механизм действия"/>
+          <ExpandableInfo title="Механизм действия"/>
+        </Stack>
+      </Stack>
+    </Info>
+
+  </PageContainer>
+}
+
+export async function  getStaticPaths() {
+  const {data} = await axios.get(endpoints.product.list)
+  return {
+    paths: data.results.map(product => ({
+      params: {id: `${product.id}`}
+    })),
+    fallback: false
+  }
+}
+
+export async function getStaticProps({params}) {
+  const {data} = await axios.get(endpoints.product.details(params.id))
+  return {props: {product: data}}
+}
 
 export default ProductById;

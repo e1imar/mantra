@@ -39,7 +39,7 @@ const Sticker = styled.p`
   right: 12px;
 `;
 
-export default function Card({ id, sticker, title, price, image = 'https://themantra.ru/media/products/Mind_350.jpg' }) {
+export default function Card({ id, sticker, title, price, image }) {
   return (
     <CardWrapper>
       <ImageWrapper>
@@ -48,7 +48,7 @@ export default function Card({ id, sticker, title, price, image = 'https://thema
         </Sticker>
           <Link href={PATH_MAIN.product(id)}>
             <a>
-              <Image alt={title} layout="fill" src={image} />
+              <Image alt={title} layout="fill" src={image ?? 'https://themantra.ru/media/products/Mind_350.jpg'} />
             </a>
           </Link>
       </ImageWrapper>
@@ -63,6 +63,6 @@ Card.propTypes = {
     id: PropTypes.number,
     sticker: PropTypes.string,
     title: PropTypes.string,
-    price: PropTypes.number,
+    price: PropTypes.string,
     image: PropTypes.string
 }

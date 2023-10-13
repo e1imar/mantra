@@ -1,75 +1,15 @@
 import CardList from '../components/mantra/presentational/CardList';
-import { useState } from 'react';
+import axios, {endpoints} from "../utils/axios";
 
-const cardList = [
-  {
-    id: 1,
-    price: 990,
-    title: 'Львиная Грива (Lion\'s Mane Mushroom)',
-    sticker: 'Новинка',
-  },
-  {
-    id: 2,
-    price: 990,
-    title: 'Львиная Грива (Lion\'s Mane Mushroom)',
-    sticker: 'Новинка',
-  },
-
-  {
-    id: 3,
-    price: 990,
-    title: 'Львиная Грива (Lion\'s Mane Mushroom)',
-    sticker: 'Новинка',
-  },
-  {
-    id: 4,
-    price: 990,
-    title: 'Львиная Грива (Lion\'s Mane Mushroom)',
-    sticker: 'Новинка',
-  },
-
-  {
-    id: 5,
-    price: 990,
-    title: 'Львиная Грива (Lion\'s Mane Mushroom)',
-    sticker: 'Новинка',
-  },
-  {
-    id: 6,
-    price: 990,
-    title: 'Львиная Грива (Lion\'s Mane Mushroom)',
-    sticker: 'Новинка',
-  },
-
-  {
-    id: 7,
-    price: 990,
-    title: 'Львиная Грива (Lion\'s Mane Mushroom)',
-    sticker: 'Новинка',
-  },
-  {
-    id: 8,
-    price: 990,
-    title: 'Львиная Грива (Lion\'s Mane Mushroom)',
-    sticker: 'Новинка',
-  },
-];
-
-const Catalogue = () => {
-  const [catalogue] = useState(cardList);
-
-  // useEffect(() => {
-  //   axiosInstance.get(urls.catalogue.get).then(({ data }) => {
-  //     setCatalogue(data);
-  //   }).catch(() => {
-  //     setCatalogue([]);
-  //   });
-  // }, [])
-  // console.log(data);
-
+const Catalogue = ({products}) => {
   return (
-    <CardList cardList={catalogue} />
+    <CardList cardList={products} />
   )
+}
+
+export async function getStaticProps() {
+  const {data} = await axios.get(endpoints.product.list)
+  return {props: {products: data.results}}
 }
 
 export default Catalogue;

@@ -32,6 +32,6 @@ export default function PriceWithDiscount({ defaultPrice, discountPrice }) {
 }
 
 PriceWithDiscount.propTypes = {
-    defaultPrice: PropTypes.number,
+    defaultPrice: PropTypes.string,
     discountPrice: PropTypes.number
 }

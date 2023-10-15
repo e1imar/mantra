@@ -5,6 +5,7 @@ import IsAvailable from '../../components/mantra/presentational/IsAvailable';
 import { getMainColor } from '../../utils/cssStyles';
 import ExpandableInfo from '../../components/mantra/presentational/ExpandableInfo';
 import axios, {endpoints} from "../../utils/axios";
+import PropTypes from "prop-types";
 
 const PageContainer = styled.div`
   width: 100%;
@@ -74,20 +75,6 @@ const ProductById = ({product}) => {
         </Text>
       </Stack>
 
-      {/*<Stack borderBottom="var(--border)" p="22px 0" justifyContent="space-between" alignItems="center" direction="row">*/}
-      {/*  <Text>*/}
-      {/*    790 RUB*/}
-      {/*  </Text>*/}
-      {/*  <IsAvailable/>*/}
-      {/*</Stack>*/}
-
-      {/*<Stack borderBottom="var(--border)" p="27px 0" justifyContent="space-between" alignItems="center" direction="row">*/}
-      {/*  <Text>*/}
-      {/*    790 RUB*/}
-      {/*  </Text>*/}
-      {/*  <IsAvailable/>*/}
-      {/*</Stack>*/}
-
       <Stack pt="44px" justifyContent="center" alignItems="center">
         <Button>
           В корзину
@@ -129,6 +116,10 @@ export async function  getStaticPaths() {
 export async function getStaticProps({params}) {
   const {data} = await axios.get(endpoints.product.details(params.id))
   return {props: {product: data}}
+}
+
+ProductById.propTypes = {
+  product: PropTypes.object
 }
 
 export default ProductById;

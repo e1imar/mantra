@@ -104,7 +104,8 @@ const ProductById = ({product}) => {
 }
 
 export async function  getStaticPaths() {
-  const {data} = await axios.get(endpoints.product.list)
+  const {data} = await axios.get(endpoints.product.list, {params: {size: 20}})
+
   return {
     paths: data.results.map(product => ({
       params: {id: `${product.id}`}

@@ -109,7 +109,7 @@ export async function  getStaticPaths() {
     paths: data.results.map(product => ({
       params: {id: `${product.id}`}
     })),
-    fallback: false
+    fallback: 'blocking'
   }
 }
 
